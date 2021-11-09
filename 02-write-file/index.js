@@ -9,7 +9,7 @@ const stream = fs.createWriteStream(path.join(__dirname,"textfile.txt"),"UTF-8",
 stream.write('Enter text:\n');
 stdout.write('Enter text:\n');
 stdin.on('data', data => {
-    if (data == 'exit\n') {
+    if (data.includes('exit')) {
         console.log("Good luck!");
         process.exit();
     } else {
@@ -21,5 +21,3 @@ process.on('SIGINT', () => {
     console.log('\nBye! Have a good day!');
     process.exit();
 });
-
-
